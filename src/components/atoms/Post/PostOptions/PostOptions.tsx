@@ -12,11 +12,12 @@ interface rootState {
 }
 
 interface PostOptionsProps {
-	id: String
+	id: string
 	parentId?: string | null
+	creator: boolean
 }
 
-const PostOptions = ({ id, parentId }: PostOptionsProps): JSX.Element => {
+const PostOptions = ({ id, parentId, creator }: PostOptionsProps): JSX.Element => {
 	const optionsIsOpen = useSelector((state: rootState) => state.ui.openedOptionsId === id)
 
 	const dispatch = useDispatch()
@@ -26,7 +27,7 @@ const PostOptions = ({ id, parentId }: PostOptionsProps): JSX.Element => {
 	}
 
 	const deleteHandler = () => {
-		dispatch(uiActions.deletePost({ id, parentId }))
+		dispatch(uiActions.deletePost({ id, parentId, creator }))
 	}
 
 	const editHandler = () => {

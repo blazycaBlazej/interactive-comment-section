@@ -46,7 +46,7 @@ const posts: Post[] = [
 				id: id(),
 				image: kyleeAvatar,
 				alt: 'Kylee Thomson',
-				creator: true,
+				creator: false,
 				time: '2023-04-18T09:14:21.732Z',
 				content: 'Truly an unhappy bit',
 				likesNumber: 1,

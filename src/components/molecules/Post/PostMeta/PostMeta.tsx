@@ -17,7 +17,7 @@ const PostMeta = ({ author, creator, time, id, parentId }: PostMetaProps): JSX.E
 			<PostAuthor author={author} creator={creator} />
 			<PostingTime time={time} />
 			<div className='post-meta__options'>
-				<PostOptions id={id} parentId={parentId} />
+				<PostOptions id={id} parentId={parentId} creator={creator} />
 			</div>
 		</div>
 	)

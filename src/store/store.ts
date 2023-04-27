@@ -1,4 +1,5 @@
 import { configureStore, createSlice } from '@reduxjs/toolkit'
+
 import ellieAvatar from '../assets/template_avatar.jpg'
 import { v4 as id } from 'uuid'
 import moment from 'moment'
@@ -80,19 +81,25 @@ const uiSlice = createSlice({
 					: (state.openedOptionsId = action.payload.id)
 		},
 		deletePost(state, action) {
-			if (!action.payload.parentId) {
-				state.posts = state.posts.filter(post => action.payload.id !== post.id)
+			if (action.payload.creator) {
+				if (!action.payload.parentId) {
+					state.posts = state.posts.filter(post => action.payload.id !== post.id)
 
-				state.commentsNumber--
-			} else {
-				const postIndex = state.posts.findIndex(post => post.id === action.payload.parentId)
+					state.commentsNumber--
+				} else {
+					const postIndex = state.posts.findIndex(post => post.id === action.payload.parentId)
 
-				if (postIndex !== -1) {
-					state.posts[postIndex].replies = state.posts[postIndex].replies.filter(
-						reply => reply.id !== action.payload.id
-					)
+					if (postIndex !== -1) {
+						state.posts[postIndex].replies = state.posts[postIndex].replies.filter(reply => {
+							if (reply.creator !== action.payload.creator) {
+								return reply
+							}
+						})
+					}
 				}
 			}
+			state.openedOptionsId = null
+			state.optionsIsOpen = false
 		},
 		likePost(state, action) {
 			state.filtrString = 'Sort by'
@@ -212,6 +219,12 @@ const uiSlice = createSlice({
 		},
 	},
 })
+
+interface postxd {
+	id: string
+	parentId: string | null
+	creator: boolean
+}
 
 const store = configureStore({
 	reducer: {
