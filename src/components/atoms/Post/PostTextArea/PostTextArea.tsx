@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -90,7 +91,6 @@ const PostTextArea = ({ id, parentId, content, isEdit }: PostTextAreaProps): JSX
 				onKeyDown={handleKeyPress}
 				placeholder='Add comment...'
 				onFocus={handleFocus}></textarea>
-			<button>Cancel editing</button>
 		</>
 	)
 }

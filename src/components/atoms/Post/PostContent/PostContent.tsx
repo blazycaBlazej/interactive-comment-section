@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { uiActions } from '../../../../store/store'
 import './PostContent.scss'
-import PostTextArea from '../PostTextArea/PostTextArea'
+import PostTextAreaWithClose from '../../../molecules/Post/PostTextAreaWithClose/PostTextAreaWithClose'
 
 interface PostContentProps {
 	content: string
@@ -22,7 +22,7 @@ const PostContent = ({ content, id, parentId }: PostContentProps): JSX.Element =
 
 	return (
 		<p className='post-content'>
-			{editIsOpen ? <PostTextArea id={id} parentId={parentId} content={content} isEdit={true} /> : content}
+			{editIsOpen ? <PostTextAreaWithClose id={id} parentId={parentId} content={content} isEdit={true} /> : content}
 		</p>
 	)
 }

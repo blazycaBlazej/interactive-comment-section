@@ -180,6 +180,11 @@ const uiSlice = createSlice({
 			state.openedReplyId = null
 		},
 
+		editClose(state) {
+			state.editIsOpen = false
+			state.openEditId = null
+		},
+
 		editOpen(state, action) {
 			state.filtrIsOpen = false
 			state.optionsIsOpen = false
