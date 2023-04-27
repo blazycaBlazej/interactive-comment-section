@@ -1,0 +1,16 @@
+.post-with-replies {
+	display: flex;
+	gap: 3.9rem;
+	& &__border {
+		border-left: 0.3rem solid #d5d5d5;
+		margin-left: 5rem;
+		margin-bottom: 1.6rem;
+	}
+
+	& &__replies {
+		display: flex;
+		flex-direction: column;
+
+		width: 100%;
+	}
+}

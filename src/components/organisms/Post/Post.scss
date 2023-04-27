@@ -18,8 +18,8 @@
 		gap: 1.6rem;
 		width: 100%;
 		&[data-isanswer='true'] {
-			margin-left: 9.6rem;
-			width: calc(100% - 9.6rem);
+			// margin-left: 3.9rem;
+			width: calc(100%);
 			max-width: 74.4rem;
 		}
 	}

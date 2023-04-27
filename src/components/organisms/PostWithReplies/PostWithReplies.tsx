@@ -1,5 +1,6 @@
 import FlipMove from 'react-flip-move'
 import Post from '../Post/Post'
+import './PostWithReplies.scss'
 
 interface PostProps {
 	id: string
@@ -46,23 +47,33 @@ const PostWithReplies = ({
 				content={content}
 				isAnswer={isAnswer}
 			/>
-
-			<FlipMove typeName='div' duration={300} easing='ease-out' leaveAnimation='fade' enterAnimation='fade'>
-				{replies.map(reply => (
-					<div key={reply.id}>
-						<Post
-							id={reply.id}
-							parentId={id}
-							image={reply.image}
-							alt={reply.alt}
-							creator={reply.creator}
-							time={reply.time}
-							content={reply.content}
-							isAnswer={reply.isAnswer}
-						/>
-					</div>
-				))}
-			</FlipMove>
+			{replies.length > 0 && (
+				<div className='post-with-replies'>
+					<div className='post-with-replies__border'></div>
+					<FlipMove
+						typeName='div'
+						className='post-with-replies__replies'
+						duration={300}
+						easing='ease-out'
+						leaveAnimation='fade'
+						enterAnimation='fade'>
+						{replies.map(reply => (
+							<div key={reply.id}>
+								<Post
+									id={reply.id}
+									parentId={id}
+									image={reply.image}
+									alt={reply.alt}
+									creator={reply.creator}
+									time={reply.time}
+									content={reply.content}
+									isAnswer={reply.isAnswer}
+								/>
+							</div>
+						))}
+					</FlipMove>
+				</div>
+			)}
 		</>
 	)
 }
