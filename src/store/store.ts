@@ -198,8 +198,10 @@ const uiSlice = createSlice({
 			state.openedOptionsId = null
 			state.replyIsOpen = false
 			state.openedReplyId = null
-			state.editIsOpen =
-				state.openEditId === action.payload.id ? (state.openEditId = null) : (state.openEditId = action.payload.id)
+			if (action.payload.creator) {
+				state.editIsOpen =
+					state.openEditId === action.payload.id ? (state.openEditId = null) : (state.openEditId = action.payload.id)
+			}
 		},
 
 		editPost(state, action) {

@@ -31,7 +31,7 @@ const PostOptions = ({ id, parentId, creator }: PostOptionsProps): JSX.Element =
 	}
 
 	const editHandler = () => {
-		dispatch(uiActions.editOpen({ id }))
+		dispatch(uiActions.editOpen({ id, creator }))
 	}
 
 	return (
