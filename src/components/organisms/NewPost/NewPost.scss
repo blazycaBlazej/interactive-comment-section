@@ -1,0 +1,13 @@
+.new-post {
+	display: flex;
+	gap: 1.6rem;
+	padding: 2.4rem;
+	border: 1px solid #d5d5d5;
+	background: #ffffff;
+	border-radius: 16px;
+	max-width: 84rem;
+	width: 100%;
+	&:hover {
+		border: 1px solid rgba(0, 0, 0, 0.6);
+	}
+}

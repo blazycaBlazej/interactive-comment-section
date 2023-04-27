@@ -1,0 +1,61 @@
+.post-likes {
+	display: flex;
+	align-items: center;
+	gap: 0.8rem;
+	width: 4.05rem;
+	transition: 10.3s fill linear;
+	cursor: pointer;
+
+	&[data-isliked='true'] {
+		.post-likes__svg-border {
+			display: none;
+		}
+		.post-likes__svg-fill {
+			display: block;
+		}
+		.post-likes__svg {
+			fill: #3c79f5;
+		}
+
+		.post-likes__likes-number {
+			color: #3c79f5;
+		}
+	}
+
+	&:hover {
+		.post-likes__svg {
+			fill: #3c79f5;
+		}
+
+		.post-likes__likes-number {
+			color: #3c79f5;
+		}
+	}
+
+	&:active {
+		.post-likes__svg {
+			fill: #3c79f5;
+		}
+
+		.post-likes__likes-number {
+			color: #3c79f5;
+		}
+	}
+
+	& &__svg {
+		fill: rgba(0, 0, 0, 0.6);
+		transition: 0.2s fill linear;
+	}
+
+	& &__svg-fill {
+		display: none;
+	}
+
+	& &__likes-number {
+		font-weight: 400;
+		font-size: 1.4rem;
+		line-height: 130%;
+		transition: 0.2s color linear;
+		color: rgba(0, 0, 0, 0.6);
+	}
+}

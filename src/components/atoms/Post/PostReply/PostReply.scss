@@ -1,0 +1,42 @@
+.post-reply {
+	display: flex;
+	align-items: center;
+
+	gap: 0.8rem;
+	cursor: pointer;
+	font-weight: 400;
+	font-size: 1.4rem;
+	line-height: 130%;
+
+	& &__svg {
+		fill: rgba(0, 0, 0, 0.6);
+		transition: 0.2s fill linear;
+	}
+
+	& &__text {
+		display: block;
+		font-weight: 400;
+		font-size: 1.4rem;
+		line-height: 130%;
+		color: rgba(0, 0, 0, 0.6);
+		transition: 0.2s color linear;
+	}
+
+	&:hover {
+		.post-reply__svg {
+			fill: #3c79f5;
+		}
+		.post-reply__text {
+			color: #3c79f5;
+		}
+	}
+	&:active {
+		.post-reply__svg {
+			fill: rgba(0, 0, 0, 0.9);
+		}
+
+		.post-reply__text {
+			color: rgba(0, 0, 0, 0.9);
+		}
+	}
+}

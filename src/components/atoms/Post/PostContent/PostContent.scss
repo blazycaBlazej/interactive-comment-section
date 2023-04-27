@@ -1,0 +1,28 @@
+.post-content {
+	height: 100%;
+	font-weight: 400;
+	font-size: 1.6rem;
+	line-height: 130%;
+	color: #000000;
+	opacity: 0.6;
+	width: 100%;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	word-break: break-word;
+}
+
+textarea {
+	border: none;
+	outline: none;
+	width: 100%;
+	max-height: 300px;
+	font-weight: 400;
+	font-size: 1.6rem;
+	line-height: 130%;
+	resize: none;
+
+	color: #000;
+	&::placeholder {
+		color: rgba(0, 0, 0, 0.5);
+	}
+}

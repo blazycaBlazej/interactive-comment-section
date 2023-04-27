@@ -1,0 +1,18 @@
+@import url('https://fonts.cdnfonts.com/css/axiforma');
+
+body {
+	box-sizing: border-box;
+	font-family: 'Axiforma', sans-serif;
+	/* font-family: 'Roboto', sans-serif; */
+	font-style: normal;
+}
+
+.app {
+	display: flex;
+	flex-direction: column;
+
+	align-items: center;
+	justify-content: center;
+	margin-block: 6.3rem;
+	gap: 1.6rem;
+}

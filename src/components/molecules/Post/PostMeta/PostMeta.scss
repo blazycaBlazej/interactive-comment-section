@@ -1,0 +1,12 @@
+.post-meta {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+
+	max-width: 71.2rem;
+	width: 100%;
+
+	& &__options {
+		margin-left: auto;
+	}
+}

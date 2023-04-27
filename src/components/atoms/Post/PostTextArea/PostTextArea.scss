@@ -1,0 +1,20 @@
+.post-text-area {
+	border: none;
+	outline: none;
+	width: 100%;
+	font-weight: 400;
+	font-size: 1.6rem;
+	line-height: 130%;
+	resize: none;
+	color: #000;
+
+	&::placeholder {
+		color: rgba(0, 0, 0, 0.5);
+	}
+
+	&[data-isedit='true'] {
+		border: 1px rgba(0, 0, 0, 0.5) solid;
+		border-radius: 5px;
+		padding: 15px;
+	}
+}

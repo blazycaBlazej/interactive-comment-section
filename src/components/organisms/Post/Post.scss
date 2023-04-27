@@ -1,0 +1,55 @@
+.post-wrapper {
+	display: flex;
+	flex-direction: column;
+	margin: auto;
+	max-width: 84rem;
+	width: 100%;
+	gap: 1.6rem;
+	height: auto;
+	z-index: 2;
+
+	& &__post {
+		display: flex;
+		max-width: 84rem;
+		padding: 3.2rem;
+		box-sizing: border-box;
+		background: #ffffff;
+		border-radius: 20px;
+		gap: 1.6rem;
+		width: 100%;
+		&[data-isanswer='true'] {
+			margin-left: 9.6rem;
+			width: calc(100% - 9.6rem);
+			max-width: 74.4rem;
+		}
+	}
+
+	& &__middle-section {
+		width: 100%;
+	}
+
+	& &__middle-section-first-element {
+		margin-bottom: 0.7rem;
+	}
+
+	& &__answer {
+		margin-bottom: 1.6rem;
+	}
+
+	& &__middle-section-second-element {
+		margin-bottom: 2.5rem;
+
+		p {
+			// max-width: 66rem;
+			padding-right: 5.2rem;
+		}
+	}
+
+	@media (max-width: 720px) {
+		& &__middle-section-second-element {
+			p {
+				padding-right: 0rem;
+			}
+		}
+	}
+}
