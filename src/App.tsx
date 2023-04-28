@@ -36,7 +36,7 @@ interface RootPost {
 
 function App() {
 	const posts = useSelector((state: RootPost) => state.ui.posts)
-	console.log(posts)
+	// console.log(posts)
 	return (
 		<div className='app'>
 			<NewPost image={templateAvatar} alt={'xd'} />
