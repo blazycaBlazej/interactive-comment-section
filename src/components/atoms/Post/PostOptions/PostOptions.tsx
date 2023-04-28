@@ -38,7 +38,7 @@ const PostOptions = ({ id, parentId, creator }: PostOptionsProps): JSX.Element =
 
 	const handleClickOutside = (e: MouseEvent) => {
 		if (myRef.current && !myRef.current.contains(e.target as Node)) {
-			dispatch(uiActions.closeOptions({ id }))
+			dispatch(uiActions.closeOptions())
 		}
 	}
 

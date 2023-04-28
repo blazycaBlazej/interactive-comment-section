@@ -68,6 +68,10 @@ const uiSlice = createSlice({
 			state.openedReplyId = null
 		},
 
+		closeFiltr(state) {
+			state.filtrIsOpen = false
+		},
+
 		changeFiltrString(state, action) {
 			state.filtrString = action.payload.string
 		},
@@ -80,7 +84,7 @@ const uiSlice = createSlice({
 					? (state.openedOptionsId = null)
 					: (state.openedOptionsId = action.payload.id)
 		},
-		closeOptions(state, action) {
+		closeOptions(state) {
 			state.optionsIsOpen = false
 			state.openedOptionsId = null
 		},

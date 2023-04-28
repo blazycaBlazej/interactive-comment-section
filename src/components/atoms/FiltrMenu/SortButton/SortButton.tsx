@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import './SortButton.scss'
 import { uiActions } from '../../../../store/store'
@@ -10,13 +11,15 @@ interface RootState {
 }
 
 const SortButton = (): JSX.Element => {
+	const myRef = useRef<HTMLDivElement | null>(null)
+	const dispatch = useDispatch()
+
 	const filtrIsOpen = useSelector((state: RootState) => state.ui.filtrIsOpen)
 
 	const filtrString = useSelector((state: RootState) => state.ui.filtrString)
 
-	const dispatch = useDispatch()
-
-	const clickHandler = () => {
+	const clickHandler = (e: React.MouseEvent) => {
+		e.stopPropagation()
 		dispatch(uiActions.toggleFiltr())
 	}
 
@@ -29,8 +32,21 @@ const SortButton = (): JSX.Element => {
 		dispatch(uiActions.sortByTime())
 		dispatch(uiActions.changeFiltrString({ string: 'From the latest' }))
 	}
+
+	const handleClickOutside = (e: MouseEvent) => {
+		if (myRef.current && !myRef.current.contains(e.target as Node)) {
+			dispatch(uiActions.closeFiltr())
+		}
+	}
+
+	useEffect(() => {
+		document.addEventListener('click', handleClickOutside)
+		return () => {
+			document.removeEventListener('click', handleClickOutside)
+		}
+	}, [])
 	return (
-		<div className='sort-button' data-isopen={filtrIsOpen} onClick={clickHandler}>
+		<div ref={myRef} className='sort-button' data-isopen={filtrIsOpen} onClick={clickHandler}>
 			<button className='sort-button__button'>
 				<span>{filtrString}</span>
 				<span>
