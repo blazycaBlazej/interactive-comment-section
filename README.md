@@ -49,7 +49,7 @@ If you have any issues, please let me know in the issues section or directly to 
 
 ```bash
 
-git clone ...
+https://github.com/blazycaBlazej/interactive-comment-section.git
 
 npm install
 
