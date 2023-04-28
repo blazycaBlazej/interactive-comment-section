@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import FlipMove from 'react-flip-move'
 import { useSelector, useDispatch } from 'react-redux'
 import { uiActions } from '../../../../store/store'
@@ -21,8 +21,10 @@ const PostOptions = ({ id, parentId, creator }: PostOptionsProps): JSX.Element =
 	const optionsIsOpen = useSelector((state: rootState) => state.ui.openedOptionsId === id)
 
 	const dispatch = useDispatch()
+	const myRef = useRef<SVGSVGElement | null>(null)
 
-	const clickHandler = () => {
+	const clickHandler = (e: React.MouseEvent) => {
+		e.stopPropagation()
 		dispatch(uiActions.toggleOptions({ id }))
 	}
 
@@ -34,22 +36,38 @@ const PostOptions = ({ id, parentId, creator }: PostOptionsProps): JSX.Element =
 		dispatch(uiActions.editOpen({ id, creator }))
 	}
 
+	const handleClickOutside = (e: MouseEvent) => {
+		if (myRef.current && !myRef.current.contains(e.target as Node)) {
+			dispatch(uiActions.closeOptions({ id }))
+		}
+	}
+
+	useEffect(() => {
+		document.addEventListener('click', handleClickOutside)
+		return () => {
+			document.removeEventListener('click', handleClickOutside)
+		}
+	}, [])
+
 	return (
 		<div className='post-options'>
 			{creator && (
 				<>
-					<svg
-						onClick={clickHandler}
-						className='post-options__svg'
-						width='24'
-						height='24'
-						viewBox='0 0 24 24'
-						fill='none'
-						xmlns='http://www.w3.org/2000/svg'>
-						<path d='M9.75 12C9.75 13.2405 10.7595 14.25 12 14.25C13.2405 14.25 14.25 13.2405 14.25 12C14.25 10.7595 13.2405 9.75 12 9.75C10.7595 9.75 9.75 10.7595 9.75 12Z' />
-						<path d='M9.75 19.5C9.75 20.7405 10.7595 21.75 12 21.75C13.2405 21.75 14.25 20.7405 14.25 19.5C14.25 18.2595 13.2405 17.25 12 17.25C10.7595 17.25 9.75 18.2595 9.75 19.5Z' />
-						<path d='M9.75 4.5C9.75 5.7405 10.7595 6.75 12 6.75C13.2405 6.75 14.25 5.7405 14.25 4.5C14.25 3.2595 13.2405 2.25 12 2.25C10.7595 2.25 9.75 3.2595 9.75 4.5Z' />
-					</svg>
+					<div>
+						<svg
+							ref={myRef}
+							onClick={clickHandler}
+							className='post-options__svg'
+							width='24'
+							height='24'
+							viewBox='0 0 24 24'
+							fill='none'
+							xmlns='http://www.w3.org/2000/svg'>
+							<path d='M9.75 12C9.75 13.2405 10.7595 14.25 12 14.25C13.2405 14.25 14.25 13.2405 14.25 12C14.25 10.7595 13.2405 9.75 12 9.75C10.7595 9.75 9.75 10.7595 9.75 12Z' />
+							<path d='M9.75 19.5C9.75 20.7405 10.7595 21.75 12 21.75C13.2405 21.75 14.25 20.7405 14.25 19.5C14.25 18.2595 13.2405 17.25 12 17.25C10.7595 17.25 9.75 18.2595 9.75 19.5Z' />
+							<path d='M9.75 4.5C9.75 5.7405 10.7595 6.75 12 6.75C13.2405 6.75 14.25 5.7405 14.25 4.5C14.25 3.2595 13.2405 2.25 12 2.25C10.7595 2.25 9.75 3.2595 9.75 4.5Z' />
+						</svg>
+					</div>
 					<FlipMove
 						duration={300}
 						easing='linear'

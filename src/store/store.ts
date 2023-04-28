@@ -80,6 +80,10 @@ const uiSlice = createSlice({
 					? (state.openedOptionsId = null)
 					: (state.openedOptionsId = action.payload.id)
 		},
+		closeOptions(state, action) {
+			state.optionsIsOpen = false
+			state.openedOptionsId = null
+		},
 		deletePost(state, action) {
 			if (action.payload.creator) {
 				if (!action.payload.parentId) {
