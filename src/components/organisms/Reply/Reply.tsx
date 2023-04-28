@@ -12,7 +12,9 @@ const Reply = ({ id, parentId }: ReplyProps): JSX.Element => {
 	return (
 		<div className='reply'>
 			<div className='reply__reply'>
-				<PostAvatar image={image} alt={'Ellie Alvaz'} />
+				<div className='reply__image'>
+					<PostAvatar image={image} alt={'Ellie Alvaz'} />
+				</div>
 				<PostTextArea id={id} parentId={parentId} />
 			</div>
 		</div>
