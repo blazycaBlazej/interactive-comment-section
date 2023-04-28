@@ -1,8 +1,9 @@
 .post-text-area-with-close {
 	position: relative;
-
+	cursor: pointer;
 	& &__icon {
 		cursor: pointer;
+		font-size: 1.1rem;
 		transition: 0.3s linear color;
 		color: #ff0000;
 		position: absolute;

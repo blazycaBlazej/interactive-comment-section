@@ -23,7 +23,7 @@ const PostTextAreaWithClose = ({ id, parentId, content, isEdit }: PostTextAreaWi
 			{isEdit && (
 				<div className='post-text-area-with-close__icon'>
 					<span onClick={clickHandler}>
-						<IconX /> anuluj
+						<IconX width={14} /> anuluj
 					</span>
 				</div>
 			)}
