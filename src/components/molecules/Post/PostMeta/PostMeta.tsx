@@ -14,8 +14,11 @@ interface PostMetaProps {
 const PostMeta = ({ author, creator, time, id, parentId }: PostMetaProps): JSX.Element => {
 	return (
 		<div className='post-meta'>
-			<PostAuthor author={author} creator={creator} />
-			<PostingTime time={time} />
+			<div className='post-meta__header'>
+				<PostAuthor author={author} creator={creator} />
+
+				<PostingTime time={time} />
+			</div>
 			<div className='post-meta__options'>
 				<PostOptions id={id} parentId={parentId} creator={creator} />
 			</div>

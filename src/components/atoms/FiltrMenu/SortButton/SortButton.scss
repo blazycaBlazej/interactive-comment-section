@@ -26,6 +26,7 @@
 	& &__button {
 		cursor: pointer;
 		display: flex;
+		justify-content: space-between;
 		align-items: center;
 		gap: 0.8rem;
 		padding: 1.2rem 2.2rem;
@@ -90,6 +91,12 @@
 			&:active {
 				color: #3c79f5;
 			}
+		}
+	}
+
+	@media (max-width: 345px) {
+		& &__button {
+			width: calc(100vw - 9.5rem);
 		}
 	}
 }

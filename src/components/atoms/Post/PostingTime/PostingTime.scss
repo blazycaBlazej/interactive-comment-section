@@ -4,4 +4,8 @@
 	line-height: 130%;
 	color: #000000;
 	opacity: 0.4;
+
+	@media (max-width: 595px) {
+		font-size: 1rem;
+	}
 }

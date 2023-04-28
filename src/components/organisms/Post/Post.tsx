@@ -31,21 +31,17 @@ const Post = ({ image, alt, creator, time, content, isAnswer, id, parentId }: Po
 	return (
 		<div className='post-wrapper' data-xd={isOpen}>
 			<div className='post-wrapper__post' data-isanswer={isAnswer} id={id}>
-				<div className='post-wrapper__left-section'>
+				<div className='post-wrapper__header'>
 					<PostAvatar image={image} alt={alt} />
+
+					<PostMeta author={alt} creator={creator} time={time} id={id} parentId={parentId} />
 				</div>
-				<div className='post-wrapper__middle-section'>
-					<div className='post-wrapper__middle-section-first-element'>
-						<PostMeta author={alt} creator={creator} time={time} id={id} parentId={parentId} />
-					</div>
-					<div className='post-wrapper__middle-section-second-element'>
-						<div>
-							<PostContent content={content} id={id} parentId={parentId} />
-						</div>
-					</div>
-					<div className='post-wrapper__middle-section-third-element'>
-						<PostInteraction id={id} parentId={parentId} />
-					</div>
+
+				<div className='post-wrapper__content'>
+					<PostContent content={content} id={id} parentId={parentId} />
+				</div>
+				<div className='post-wrapper__interaction'>
+					<PostInteraction id={id} parentId={parentId} />
 				</div>
 			</div>
 

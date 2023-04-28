@@ -3,4 +3,7 @@
 	font-size: 1.6rem;
 	line-height: 2.6rem;
 	color: #000000;
+	@media (max-width: 595px) {
+		font-size: 1.4rem;
+	}
 }

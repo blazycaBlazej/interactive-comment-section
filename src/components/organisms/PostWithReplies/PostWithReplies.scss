@@ -1,6 +1,8 @@
 .post-with-replies {
 	display: flex;
 	gap: 3.9rem;
+	max-width: 84rem;
+	margin: auto;
 	& &__border {
 		border-left: 0.3rem solid #d5d5d5;
 		margin-left: 5rem;
@@ -12,5 +14,16 @@
 		flex-direction: column;
 
 		width: 100%;
+	}
+
+	@media (max-width: 600px) {
+		margin-left: 7.5rem;
+		& &__border {
+			display: none;
+		}
+	}
+
+	@media (max-width: 450px) {
+		margin-left: 3rem;
 	}
 }

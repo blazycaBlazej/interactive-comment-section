@@ -1,7 +1,7 @@
 import FlipMove from 'react-flip-move'
 import { useDispatch, useSelector } from 'react-redux'
 import './PostLikes.scss'
-
+import SVG from 'react-inlinesvg'
 import { uiActions } from '../../../../store/store'
 
 interface PostLikesProps {

@@ -14,5 +14,16 @@ body {
 	align-items: center;
 	justify-content: center;
 	margin-block: 6.3rem;
+	margin-inline: 5rem;
 	gap: 1.6rem;
+}
+
+.posts-wrappper {
+	width: 100%;
+}
+
+@media (max-width: 650px) {
+	.app {
+		margin-inline: 1.6rem;
+	}
 }

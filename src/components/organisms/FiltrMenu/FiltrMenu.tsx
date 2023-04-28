@@ -6,7 +6,9 @@ import './FiltrMenu.scss'
 const FiltrMenu = (): JSX.Element => {
 	return (
 		<div className='filtr-menu'>
-			<CommentsNumber />
+			<div className='filtr-menu__commnets-number'>
+				<CommentsNumber />
+			</div>
 			<SortButton />
 		</div>
 	)

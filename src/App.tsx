@@ -42,7 +42,13 @@ function App() {
 			<NewPost image={templateAvatar} alt={'xd'} />
 			<FiltrMenu />
 
-			<FlipMove typeName='div' duration={400} easing='ease-out' leaveAnimation='fade' enterAnimation='fade'>
+			<FlipMove
+				typeName='div'
+				className='posts-wrappper'
+				duration={400}
+				easing='ease-out'
+				leaveAnimation='fade'
+				enterAnimation='fade'>
 				{posts
 					.slice()
 					.reverse()

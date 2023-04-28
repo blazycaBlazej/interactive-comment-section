@@ -9,6 +9,10 @@
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	word-break: break-word;
+
+	@media (max-width: 595px) {
+		font-size: 1.4rem;
+	}
 }
 
 textarea {

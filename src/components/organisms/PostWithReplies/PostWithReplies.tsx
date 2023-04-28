@@ -47,6 +47,7 @@ const PostWithReplies = ({
 				content={content}
 				isAnswer={isAnswer}
 			/>
+
 			{replies.length > 0 && (
 				<div className='post-with-replies'>
 					<div className='post-with-replies__border'></div>

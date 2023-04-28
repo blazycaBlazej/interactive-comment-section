@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -74,13 +73,13 @@ const PostTextArea = ({ id, parentId, content, isEdit }: PostTextAreaProps): JSX
 	}
 
 	useEffect(() => {
+		textAreaRef.current!.focus()
 		if (areaFocus) {
 			handleFocus()
-			textAreaRef.current!.focus()
-
 			setAddStyle(true)
 		}
 	}, [])
+
 
 	return (
 		<>
