@@ -1,7 +1,7 @@
 # Live 💻
+https://gregarious-begonia-6cea65.netlify.app/
 
 # Technologies 🔧
-
 - React
 - TypeScript
 - SCSS
